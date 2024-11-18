@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+import { ref } from 'vue';
 
 
 defineProps({
@@ -31,9 +32,15 @@ const form = useForm({
 
 const submit = () => {
     form.post(route('register'), {
-        onFinish: () => form.reset('password', 'password_confirmation'),
+        onSuccess: () => {
+            alert('Registered successfully!');
+            form.reset();
+        },
     });
 };
+
+const options = ['Industry', 'Supplier'];
+const selectedOption = ref(options[0]);
 </script>
 
 <template>
@@ -69,6 +76,24 @@ const submit = () => {
                         v-model="form.phone" 
                         type="text" 
                         required />
+                </div>
+                <div class="flex flex-col mt-4">
+                    <label for="role" class="mb-2 text-sm font-medium text-gray-700">
+                    Use Type
+                    </label>
+                    <select
+                    id="role"
+                    v-model="selectedOption"
+                    class="block w-full mt-1 text-gray-900 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                    <option
+                        v-for="option in options"
+                        :key="option"
+                        :value="option"
+                    >
+                        {{ option }}
+                    </option>
+                    </select>
                 </div>
 
                 <div class="mt-4">

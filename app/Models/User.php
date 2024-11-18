@@ -22,6 +22,9 @@ class User extends Authenticatable
         'phone',
         'email',
         'password',
+        'role', // Add the role column to the fillable array
+        'permissions', // Add the permissions column to the fillable array
+        'status',
     ];
 
     /**

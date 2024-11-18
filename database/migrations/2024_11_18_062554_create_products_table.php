@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable(); // Product description (nullable)
             $table->decimal('price', 10, 2); // Product price with 2 decimal places
             $table->integer('quantity'); // Product quantity
+            $table->string('picture'); // Product picture
             $table->timestamps(); // Created_at and updated_at columns
         });
     }

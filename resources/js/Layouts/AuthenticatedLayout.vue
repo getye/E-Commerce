@@ -36,9 +36,9 @@ const menus = [
                                     :key="menu.label" 
                                     :href="route(menu.route)" 
                                     :active="route().current(menu.route)"
-                                    class="text-white"
+                                    class="font-extrabold text-white"
                                 >
-                                    {{ menu.label }}
+                                    <h1>{{ menu.label }}</h1>
                                 </NavLink>
                             </div>
                         </div>
