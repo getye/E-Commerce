@@ -43,8 +43,6 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('admin.dashboard');
         case 'supplier':
             return redirect()->route('supplier.dashboard');
-        case 'industry':
-            return redirect()->route('supplier.dashboard');
         default:
             return redirect()->route('dashboard'); // Default redirection
     }

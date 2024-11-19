@@ -10,7 +10,7 @@ const showingNavigationDropdown = ref(false);
 
 // Define menus with labels and routes
 const menus = [
-    { label: 'Home', route: 'user.dashboard' },
+    { label: 'Home', route: 'supplier.dashboard' },
     { label: 'Add', route: 'add.product' },
     { label: 'View', route: 'view.product' },    
 ];

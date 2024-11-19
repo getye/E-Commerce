@@ -9,6 +9,7 @@ import { Head } from '@inertiajs/vue3';
 // Define the reactive form data
 const productForm = useForm({
     name: '',
+    immage: '',
     description: '',
     price: '',
     quantity: '',
@@ -43,6 +44,19 @@ const submitProduct = () => {
                                     v-model="productForm.name"
                                     class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                     required
+                                />
+                            </div>
+
+                            <div class="mt-4">
+                                <label for="image" class="block text-sm font-medium text-gray-700">
+                                    Product Image
+                                </label>
+                                <input
+                                    id="image"
+                                    type="file"
+                                    class="block w-full mt-1"
+                                    @change="handleImageUpload"
+                                    accept="image/*"
                                 />
                             </div>
 

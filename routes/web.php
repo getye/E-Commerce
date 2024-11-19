@@ -15,9 +15,9 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/user/dashboard', function () {
+Route::get('/supplier/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('user.dashboard');
+})->middleware(['auth', 'verified'])->name('supplier.dashboard');
 
 Route::get('/view/product', function () {
     return Inertia::render('Products');

@@ -25,6 +25,7 @@ defineProps({
 const form = useForm({
     name: '',
     phone: '',
+    role: '',
     email: '',
     password: '',
     password_confirmation: '',
@@ -66,7 +67,7 @@ const selectedOption = ref(options[0]);
 
                     <InputError class="mt-2" :message="form.errors.name" />
                 </div>
-
+                <InputError class="mt-2" :message="form.errors.name" />
                 <div>
                     <label for="phone">Phone</label>
                     <input 
@@ -75,24 +76,6 @@ const selectedOption = ref(options[0]);
                         v-model="form.phone" 
                         type="text" 
                         required />
-                </div>
-                <div class="flex flex-col mt-4">
-                    <label for="role" class="mb-2 text-sm font-medium text-gray-700">
-                     Type
-                    </label>
-                    <select
-                    id="role"
-                    v-model="selectedOption"
-                    class="block w-full mt-1 text-gray-900 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    >
-                    <option
-                        v-for="option in options"
-                        :key="option"
-                        :value="option"
-                    >
-                        {{ option }}
-                    </option>
-                    </select>
                 </div>
 
                 <div class="mt-4">
