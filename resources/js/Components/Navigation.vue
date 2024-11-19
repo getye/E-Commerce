@@ -16,8 +16,8 @@ defineProps({
 
 <template>
     <header class="flex items-center justify-between px-6 py-5 text-white bg-gray-800">
-        <div>
-            <h1 class="text-xl font-bold">My App</h1>
+        <div class="hidden sm:block">
+            <h1 class="text-xl font-bold">E-Commerce App</h1>
         </div>
         <nav class="flex gap-4">
             <Link
@@ -33,7 +33,7 @@ defineProps({
                     :href="route('login')"
                     class="text-white hover:text-gray-300"
                 >
-                    Log in
+                    Login
                 </Link>
                 <Link
                     v-if="canRegister"

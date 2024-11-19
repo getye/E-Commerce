@@ -13,15 +13,19 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('dashboard');
 
-Route::get('/supplier/dashboard', function () {
+Route::get('/user/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('supplier.dashboard');
+})->middleware(['auth', 'verified'])->name('user.dashboard');
 
-Route::get('/industry/dashboard', function () {
-    return Inertia::render('Industry/Dashboard');
-})->middleware(['auth', 'verified'])->name('industry.dashboard');
+Route::get('/view/product', function () {
+    return Inertia::render('View');
+})->middleware(['auth', 'verified'])->name('view.product');
+
+Route::get('/add/product', function () {
+    return Inertia::render('AddProduct');
+})->middleware(['auth', 'verified'])->name('add.product');
 
 Route::get('/admin/dashboard', function () {
     return Inertia::render('Admin/Dashboard');
@@ -33,6 +37,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->name('dashboard');
+
+
 
 Route::get('/products/view', [ProductController::class, 'view'])->name('products.view');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
