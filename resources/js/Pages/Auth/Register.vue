@@ -39,7 +39,7 @@ const submit = () => {
     });
 };
 
-const options = ['Industry', 'Supplier'];
+const options = ['industry', 'supplier'];
 const selectedOption = ref(options[0]);
 </script>
 
@@ -51,7 +51,6 @@ const selectedOption = ref(options[0]);
                 @submit.prevent="submit"
                     class="w-full px-6 py-4 overflow-hidden bg-gray-100 shadow-md sm:max-w-md sm:rounded-lg"
                 >
-                <h3>Registration</h3>
                 <div>
                     <InputLabel for="name" value="Name" />
 
@@ -79,7 +78,7 @@ const selectedOption = ref(options[0]);
                 </div>
                 <div class="flex flex-col mt-4">
                     <label for="role" class="mb-2 text-sm font-medium text-gray-700">
-                    Use Type
+                     Type
                     </label>
                     <select
                     id="role"

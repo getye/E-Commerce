@@ -39,11 +39,11 @@ class AuthenticatedSessionController extends Controller
 
     // Redirect based on user role
     switch ($user->role) {
-        case 'Admin':
+        case 'admin':
             return redirect()->route('admin.dashboard');
-        case 'Supplier':
+        case 'supplier':
             return redirect()->route('supplier.dashboard');
-        case 'Industry':
+        case 'industry':
             return redirect()->route('supplier.dashboard');
         default:
             return redirect()->route('dashboard'); // Default redirection
