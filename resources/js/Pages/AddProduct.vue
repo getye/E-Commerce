@@ -9,20 +9,46 @@ import { Head } from '@inertiajs/vue3';
 // Define the reactive form data
 const productForm = useForm({
     name: '',
-    immage: '',
+    immage: null,
     description: '',
-    price: '',
-    quantity: '',
+    price: 0,
+    quantity: 0,
+    processing: false,
 });
 
+const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    productForm.value.image = file; // Attach the file to the form object
+};
+
 // Function to handle form submission
-const submitProduct = () => {
-    productForm.post(route('products.store'), {
-        onSuccess: () => {
+const submitProduct = async () => {
+    try {
+        productForm.value.processing = true;
+
+        // Create FormData object to send the data, including the file
+        const formData = new FormData();
+        Object.keys(productForm.value).forEach((key) => {
+            formData.append(key, productForm.value[key]);
+        });
+
+        // Make the POST request
+        const response = await fetch('/add/product', {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (response.ok) {
             alert('Product added successfully!');
             productForm.reset();
-        },
-    });
+        } else {
+            console.error('Failed to add product');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    } finally {
+        productForm.value.processing = false;
+    }
 };
 </script>
 
